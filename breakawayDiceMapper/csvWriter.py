@@ -1,6 +1,11 @@
-
+import os
 
 def write_csv(data, job, filename):
+    # Make output directory
+    if not os.path.isdir('output'):
+        os.mkdir('output')
+    filename = os.path.join('output', filename)
+
     with open(filename, 'w') as csv:
         rows = len(data)
         cols = len(data[list(data.keys())[0]])

@@ -27,4 +27,6 @@ build
 
 # output files
 output
+plots
 *.csv
+*.png

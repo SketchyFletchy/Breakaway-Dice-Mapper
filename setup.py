@@ -15,6 +15,8 @@ setup(
     entry_points={
         'console_scripts': [
             'bdm = breakawayDiceMapper.__main__:main',
+            'bdm-clean = breakawayDiceMapper.cleanDir:main',
+            'bdm-plot = breakawayDiceMapper.plotter:main',
         ],
     },
     classifiers=[
