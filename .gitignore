@@ -22,6 +22,9 @@ build
 # misc
 .DS_Store
 
+# input files
+*.json
+
 # output files
 output
 *.csv
