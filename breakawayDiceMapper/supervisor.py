@@ -1,4 +1,4 @@
-from breakawayProbability import calculateOutcomes
+from breakawayDiceMapper.probability import calculateOutcomes
 
 def runScenario(playerDiceArray, dmDiceArray, diceFace, verbose=False, legacy=False):
     results =  {}

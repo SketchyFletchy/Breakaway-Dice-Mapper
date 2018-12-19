@@ -1,0 +1,27 @@
+# Compiled files
+*.pyc
+*.swp
+*.zip
+
+# Distribution files
+build
+dist
+venv
+*.egg*
+
+# IDE
+.vscode
+*.code-workspace
+.idea
+*.iml
+.cache
+
+# production
+build
+
+# misc
+.DS_Store
+
+# output files
+output
+*.csv

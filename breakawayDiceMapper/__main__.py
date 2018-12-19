@@ -1,6 +1,6 @@
 import argparse
-from supervisor import runScenario
-from csvWriter import write_csv
+from breakawayDiceMapper.supervisor import runScenario
+from breakawayDiceMapper.csvWriter import write_csv
 
 def main():
     '''
@@ -18,8 +18,8 @@ def main():
     verbose = args.verbose
 
     # Scenarios
-    playerDiceArray = [1,2,3,4,5,6,7,8]
-    dmDiceArray = [1,2,3,4,5,6,7,8]
+    playerDiceArray = [1,2,3,4,5]
+    dmDiceArray = [1,2,3,4,5]
     face = 6
 
     #Supervisor runs sims
