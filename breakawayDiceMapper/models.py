@@ -1,3 +1,4 @@
+import random
 '''
 Additonal models can be defined here.
 
@@ -86,11 +87,37 @@ def skillBiasedDraws (player, dm, rollsPerHand) :
     else :
         return 'lose', drawn_dice
 
+def randomlySettledDraws(player, dm, rollsPerHand) :
+    '''
+    Altrnative to models 1&2 propozed by Fez
+    Individual dice ties are ignored.
+    Tied number of successes goes player on a 1d6 roll > 3
+    '''
+    rollWins = 0
+    rollLoses = 0
+    drawn_dice = 0
 
+    for roll in range(rollsPerHand) :
+        if player[roll] > dm[roll] :
+            rollWins += 1
+        elif dm[roll] > player[roll]:
+            rollLoses += 1
+        else:
+            drawn_dice += 1
+    if rollWins > rollLoses :
+        return 'win', drawn_dice
+    elif rollWins < rollLoses:
+        return 'lose', drawn_dice
+    else:
+        if random.random() >= 0.5:
+            return 'win', drawn_dice
+        else:
+            return 'loss', drawn_dice
 
 # exported models lookup table
 models = {
     'legacy':legacy,
     'throwOutDraws':throwOutDraws,
-    'skillBiasedDraws':skillBiasedDraws
+    'skillBiasedDraws':skillBiasedDraws,
+    'randomlySettledDraws':randomlySettledDraws
 }
