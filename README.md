@@ -12,5 +12,13 @@ A dice probability sim for the development of [hit Sci-Fi Tabletop RPG Breakaway
 3. pip install -e .
 
 ## Run sim
-+ new rule test `bdm --output <outputFileName>`
-+ original rule test `bdm --legacy --output <outputFileName>`
++ Create a `config.json` file. An example format can be found by running `bdm --example-config`
++ Run `bdm --config config.json`
++ Data will be stored in `./outputs`
+
+## Plot all output CSV files
++ run `bdm-plot output/*.csv`
++ Plots will be stored in `./plots`
+
+## Clean all CSV and PNG files
++ run `bdm-clean`

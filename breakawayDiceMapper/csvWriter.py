@@ -1,6 +1,11 @@
+import os
 
+def write_csv(data, job, filename):
+    # Make output directory
+    if not os.path.isdir('output'):
+        os.mkdir('output')
+    filename = os.path.join('output', filename)
 
-def write_csv(data, filename):
     with open(filename, 'w') as csv:
         rows = len(data)
         cols = len(data[list(data.keys())[0]])
@@ -14,7 +19,7 @@ def write_csv(data, filename):
         vert_key = ['' for x_ in range(rows+2)]
         vert_key[rows//2] = 'Player Rolls'
 
-        # Extract data
+        # Extract data and write to file
         for i, player_roll in enumerate(data):
             if i == 0:
                 row = ['', ''] + [str(x) for x in data[player_roll]]
@@ -25,3 +30,15 @@ def write_csv(data, filename):
                 win_percentage = data[player_roll][dm_roll]
                 row.append(str(win_percentage))
             csv.write('\t'.join(row)+'\n')
+
+        # Write info section
+        csv.write('\n\n')
+        csv.write('Model Name:\t{}\n'.format(job["model"]))
+        csv.write('Calculated statistic:\t{}\n'.format(job["output_stat"]))
+        csv.write('Dice:\tD{}\n'.format(job["face"]))
+        csv.write('\n\nDescription:\n')
+
+        description = job["description"].split('\n')
+        for line in description:
+            csv.write('\t{}\n'.format(line))
+
